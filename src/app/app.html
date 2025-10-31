@@ -42,7 +42,8 @@
 
 <section>
   <h1>Signals</h1>
-  <div>Counter: {{ counter() }}</div>
+  <div [title]="'Counter: ' + counter()">Counter: {{ counter() }}</div>
+  <div>Double counter: {{ doubleCounter() }}</div>
   <div>
     <button (click)="increaseCounter()">Increase counter</button>
     <button (click)="decreaseCounter()">Decrease counter</button>
@@ -53,5 +54,15 @@
     @if (counter() > 10) {
     <div>Counter is bigger than 10!</div>
     }
+  </div>
+
+  <div>
+    <input type="text" [(ngModel)]="text" />
+    Text: {{ text() }}
+  </div>
+
+  <div>
+    <input type="text" [value]="text2()" (input)="setText2($event)" />
+    Text2: {{ text2() }}
   </div>
 </section>
