@@ -1,11 +1,12 @@
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Counter } from './counter/counter';
+import { Box } from './box/box';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, Counter],
-  templateUrl: './app.html',
+  imports: [FormsModule, Counter, Box],
+  templateUrl: './app2.html',
   styleUrl: './app.css',
 })
 export class App {
