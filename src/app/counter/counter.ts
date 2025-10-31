@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-counter',
+  selector: 'counter',
   imports: [],
   template: `
     <section class="counter">
