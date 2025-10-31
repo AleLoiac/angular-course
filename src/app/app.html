@@ -17,7 +17,7 @@
 } }
 
 <div class="students">
-  @for (student of students; track student.id) { @let fn = `${student.fn} ${student.ln}`;
+  @for (student of students(); track student.id) { @let fn = `${student.fn} ${student.ln}`;
 
   <div class="student">
     <div>{{ fn }}</div>
@@ -31,3 +31,27 @@
   </div>
   }
 </div>
+
+<div>
+  <button (click)="addStudent()">Add student</button>
+
+  <button (click)="updateStudentInfo(2)">Update student #2</button>
+
+  <button (click)="orderStudentsRandomly()">Order students randomly</button>
+</div>
+
+<section>
+  <h1>Signals</h1>
+  <div>Counter: {{ counter() }}</div>
+  <div>
+    <button (click)="increaseCounter()">Increase counter</button>
+    <button (click)="decreaseCounter()">Decrease counter</button>
+    <button (click)="setCounter(10)">Set counter to 10</button>
+  </div>
+
+  <div>
+    @if (counter() > 10) {
+    <div>Counter is bigger than 10!</div>
+    }
+  </div>
+</section>
