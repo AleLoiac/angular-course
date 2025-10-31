@@ -1,10 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { Counter } from './counter/counter';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule],
+  imports: [FormsModule, Counter],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -20,21 +21,8 @@ export class App {
     { id: 4, fn: 'Anna', ln: 'Bianchi' },
   ]);
 
-  counter = signal(0);
-  doubleCounter = computed(() => this.counter() * 2);
-
   text = signal('');
   text2 = signal('');
-
-  increaseCounter = () => {
-    this.counter.update((value) => value + 1);
-  };
-  decreaseCounter = () => {
-    this.counter.update((value) => value - 1);
-  };
-  setCounter = (v: number) => {
-    this.counter.set(v);
-  };
 
   addStudent = () => {
     const id = this.students().length + 1;
