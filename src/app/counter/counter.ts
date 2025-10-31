@@ -5,6 +5,7 @@ import { Component, computed, signal } from '@angular/core';
   imports: [],
   template: `
     <section class="counter">
+      <h2>Counter component</h2>
       <div [title]="'Counter: ' + counter()">Counter: {{ counter() }}</div>
       <div>Double counter: {{ doubleCounter() }}</div>
       <div>
@@ -23,7 +24,17 @@ import { Component, computed, signal } from '@angular/core';
   styles: `
   .counter {
     margin-block: 20px;
-  }`,
+  }
+  button {
+    background-color: lightblue;
+    padding-block: 5px;
+    padding-inline: 15px;
+    margin: 10px 10px 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  `,
 })
 export class Counter {
   counter = signal(0);
