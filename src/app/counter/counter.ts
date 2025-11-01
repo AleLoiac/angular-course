@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, model, signal } from '@angular/core';
+import { Component, computed, effect, input, model, output, signal } from '@angular/core';
 
 @Component({
   selector: 'counter',
@@ -22,6 +22,8 @@ import { Component, computed, effect, input, model, signal } from '@angular/core
         <div>Counter is bigger than 10!</div>
         }
       </div>
+
+      <button (click)="sendMessage()">Send message to parent</button>
     </section>
   `,
   styles: `
@@ -47,6 +49,12 @@ export class Counter {
 
   counter = signal(0);
   doubleCounter = computed(() => this.counter() * 2);
+
+  messageSent = output<string>();
+
+  sendMessage() {
+    this.messageSent.emit('From child counter');
+  }
 
   increaseCounter = () => {
     this.counter.update((value) => value + 1);

@@ -57,4 +57,10 @@ export class App {
   increaseStartCounter() {
     this.startCounter.update((v) => v + 50);
   }
+
+  messageReceived = signal('');
+
+  onMessageReceived(message: string) {
+    this.messageReceived.set(message);
+  }
 }
