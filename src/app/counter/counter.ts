@@ -1,11 +1,11 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, input, signal } from '@angular/core';
 
 @Component({
   selector: 'counter',
   imports: [],
   template: `
     <section class="counter">
-      <h2>Counter component</h2>
+      <h2>{{ title() }}</h2>
       <div [title]="'Counter: ' + counter()">Counter: {{ counter() }}</div>
       <div>Double counter: {{ doubleCounter() }}</div>
       <div>
@@ -37,6 +37,9 @@ import { Component, computed, signal } from '@angular/core';
   `,
 })
 export class Counter {
+  title = input.required<string>();
+  start = input(0);
+
   counter = signal(0);
   doubleCounter = computed(() => this.counter() * 2);
 
@@ -49,4 +52,16 @@ export class Counter {
   setCounter = (v: number) => {
     this.counter.set(v);
   };
+
+  ngOnInit() {
+    //this.counter.set(this.start());
+  }
+
+  constructor() {
+    effect(() => this.counter.set(this.start()));
+
+    effect(() => {
+      console.log(`Counter: ${this.counter()}`);
+    });
+  }
 }

@@ -1,12 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Counter } from './counter/counter';
-import { Box } from './box/box';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, Counter, Box],
-  templateUrl: './app2.html',
+  imports: [FormsModule, Counter],
+  templateUrl: './app3.html',
   styleUrl: './app.css',
 })
 export class App {
@@ -23,6 +22,8 @@ export class App {
 
   text = signal('');
   text2 = signal('');
+
+  startCounter = signal(100);
 
   addStudent = () => {
     const id = this.students().length + 1;
@@ -49,5 +50,9 @@ export class App {
       this.text2.set(e.target.value);
     }
     // we can also use Typescript assertions this.text2.set((e.target as HTMLInputElement).value);
+  }
+
+  increaseStartCounter() {
+    this.startCounter.update((v) => v + 50);
   }
 }
