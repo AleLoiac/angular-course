@@ -5,3 +5,11 @@
 <div>
   {{ word | capitalize }}
 </div>
+
+<h2>Students</h2>
+
+@for (student of students.students; track student.id) {
+<div>{{ student.fullName }}: {{ student.rate }}</div>
+}
+
+<div>Best student: {{ students.getBestStudent()?.fullName }}</div>
