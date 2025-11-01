@@ -6,6 +6,9 @@ import { Component, computed, effect, input, model, output, signal } from '@angu
   template: `
     <section class="counter">
       <h2>{{ title() }}</h2>
+      <div>
+        <ng-content></ng-content>
+      </div>
       <div [title]="'Counter: ' + counter()">Counter: {{ counter() }}</div>
       <div>Double counter: {{ doubleCounter() }}</div>
       <div>

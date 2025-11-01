@@ -4,3 +4,7 @@
 <counter [title]="'Counter 0'" [(num)]="number" (messageSent)="onMessageReceived($event)" />
 <counter [title]="'Counter 1'" [start]="startCounter()" />
 <button (click)="increaseStartCounter()">Increase start counter</button>
+
+<counter [title]="'Counter 2'">
+  <div>Counter content</div>
+</counter>
