@@ -9,6 +9,16 @@ import { Component, computed, effect, input, model, output, signal } from '@angu
       <div>
         <ng-content></ng-content>
       </div>
+
+      <section>
+        <header>
+          <ng-content select="[header]"></ng-content>
+        </header>
+        <footer>
+          <ng-content select="[footer]"></ng-content>
+        </footer>
+      </section>
+
       <div [title]="'Counter: ' + counter()">Counter: {{ counter() }}</div>
       <div>Double counter: {{ doubleCounter() }}</div>
       <div>
