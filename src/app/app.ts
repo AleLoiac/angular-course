@@ -25,6 +25,8 @@ export class App {
 
   startCounter = signal(100);
 
+  number = signal(10);
+
   addStudent = () => {
     const id = this.students().length + 1;
     const newStudent = {

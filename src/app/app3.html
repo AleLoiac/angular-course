@@ -1,3 +1,5 @@
-<counter [title]="'Counter 0'" />
+<div>Number: {{ number() }}</div>
+
+<counter [title]="'Counter 0'" [(num)]="number" />
 <counter [title]="'Counter 1'" [start]="startCounter()" />
 <button (click)="increaseStartCounter()">Increase start counter</button>

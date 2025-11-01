@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, signal } from '@angular/core';
+import { Component, computed, effect, input, model, signal } from '@angular/core';
 
 @Component({
   selector: 'counter',
@@ -12,6 +12,9 @@ import { Component, computed, effect, input, signal } from '@angular/core';
         <button (click)="increaseCounter()">Increase counter</button>
         <button (click)="decreaseCounter()">Decrease counter</button>
         <button (click)="setCounter(10)">Set counter to 10</button>
+      </div>
+      <div>
+        <button (click)="increaseNum()">Increase number</button>
       </div>
 
       <div>
@@ -40,6 +43,8 @@ export class Counter {
   title = input.required<string>();
   start = input(0);
 
+  num = model(0);
+
   counter = signal(0);
   doubleCounter = computed(() => this.counter() * 2);
 
@@ -64,4 +69,8 @@ export class Counter {
       console.log(`Counter: ${this.counter()}`);
     });
   }
+
+  increaseNum = () => {
+    this.num.update((value) => value + 1);
+  };
 }
