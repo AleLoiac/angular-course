@@ -8,3 +8,25 @@
 
 <div class="box" [style.width.px]="width()">Content</div>
 <button (click)="changeWidth()">Change width</button>
+
+<h2>NgClass</h2>
+<button
+  [ngClass]="{
+    'btn': true,
+    'btn-primary': isPrimary(),
+    'btn-danger': isDanger(),
+}"
+>
+  Click
+</button>
+
+<h2>NgStyle</h2>
+<div
+  [ngStyle]="{
+    'border' : '4px solid',
+    'background-color' : bg(),
+    'font-size.px' : fontSize,
+}"
+>
+  Content
+</div>
