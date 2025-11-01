@@ -1,2 +1,10 @@
+<h2>Box</h2>
 <div [class.box]="isBox()">Content</div>
 <button (click)="toggleBoxSignal()">Toggle box signal</button>
+
+<h3>Styles</h3>
+<div [style.backgroundColor]="bg()">Content</div>
+<button (click)="toggleBg()">Toggle Bg</button>
+
+<div class="box" [style.width.px]="width()">Content</div>
+<button (click)="changeWidth()">Change width</button>
