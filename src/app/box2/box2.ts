@@ -1,9 +1,9 @@
-import { SlicePipe } from '@angular/common';
+import { SlicePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'box2',
-  imports: [SlicePipe],
+  imports: [SlicePipe, UpperCasePipe],
   templateUrl: './box2.html',
   styleUrl: './box2.css',
 })
