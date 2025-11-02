@@ -23,14 +23,12 @@ export class HttpServer {
 
   loadPosts() {
     this.loading.set(true);
-    this.http
-      .get<Post[]>('https://jsonplaceholder.typicode.com/posts')
-      .subscribe(async (response) => {
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+    this.http.get<Post[]>('http://localhost:3000/posts').subscribe(async (response) => {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        this.loading.set(false);
-        this.posts.set(response);
-      });
+      this.loading.set(false);
+      this.posts.set(response);
+    });
   }
 
   addPost() {
@@ -42,7 +40,7 @@ export class HttpServer {
     };
 
     this.http
-      .post<Post>('https://jsonplaceholder.typicode.com/posts', post)
+      .post<Post>('http://localhost:3000/posts', post)
       .subscribe((res) => this.posts.update((v) => [...v, res]));
   }
 
