@@ -8,8 +8,12 @@
 
 <h2>Students</h2>
 
-@for (student of students.students; track student.id) {
+@for (student of studentsList(); track student.id) {
 <div>{{ student.fullName }}: {{ student.rate }}</div>
 }
 
-<div>Best student: {{ students.getBestStudent()?.fullName }}</div>
+<div>
+  <button (click)="addStudent()">Add student</button>
+</div>
+
+<div>Best student: {{ bestStudent()?.fullName }}</div>

@@ -1,7 +1,8 @@
 import { SlicePipe, UpperCasePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CapitalizePipe } from '../capitalize-pipe';
 import { Students } from '../services/students';
+import Student from '../types/student.type';
 
 @Component({
   selector: 'box2',
@@ -16,4 +17,16 @@ export class Box2 {
   word = 'angular';
 
   students = inject(Students);
+
+  studentsList = signal<Student[]>([]);
+
+  bestStudent = computed(() => this.students.getBestStudent(this.studentsList()));
+
+  ngOnInit() {
+    this.studentsList.set(this.students.students);
+  }
+
+  addStudent() {
+    this.studentsList.update((v) => [...v, { id: 5, fullName: 'New Student', rate: 10 }]);
+  }
 }
