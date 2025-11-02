@@ -1,0 +1,16 @@
+<h2>HTTPClient</h2>
+
+<button (click)="loadPosts()">Get posts</button>
+<button (click)="addPost()">Add new post</button>
+
+@if(loading()) {
+<div>Loading...</div>
+}
+
+<ul>
+  @for (post of posts(); track post.id) {
+  <li>{{ post.title }}</li>
+  } @empty {
+  <div>No posts</div>
+  }
+</ul>
